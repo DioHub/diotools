@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name		DIO-TOOLS
 // @namespace	DIO
-// @version		3.17
+// @version		3.18
 // @author		Diony
 // @updateURL   https://diotools.de/downloads/DIO-TOOLS.user.js
 // @downloadURL	https://diotools.de/downloads/DIO-TOOLS.user.js
@@ -22,7 +22,7 @@
 // @grant		GM_getResourceURL
 // ==/UserScript==
 
-var version = '3.17';
+var version = '3.18';
 
 //if(unsafeWindow.DM) console.dir(unsafeWindow.DM.status('l10n'));
 //console.dir(DM.status('templates'));
@@ -3286,6 +3286,14 @@ function DIO_GAME(version, gm, DATA, time_a) {
                         // Prevent parent world wonder event
                         z.stopPropagation();
                     });
+                    
+                    $('#minimap_islands_layer').off("mousedown");
+                    $('#minimap_islands_layer').on("mousedown", function(){
+
+                        if(typeof($('#context_menu').get(0)) !== "undefined"){
+                            $('#context_menu').get(0).remove();
+                        }
+                    });
 
 
                     // Town Popup for own towns
@@ -3332,6 +3340,7 @@ function DIO_GAME(version, gm, DATA, time_a) {
 
                 // Events entfernen
                 $('#minimap_islands_layer').off('click', '.m_town');
+                $('#minimap_islands_layer').off("mousedown");
 
                 $('#minimap_islands_layer').off('mouseout', '.m_town');
                 $('#minimap_islands_layer').off('mouseover', '.m_town');
