@@ -1,7 +1,7 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name		DIO-TOOLS
 // @namespace	DIO
-// @version		3.18
+// @version		3.19
 // @author		Diony
 // @updateURL   https://diotools.de/downloads/DIO-TOOLS.user.js
 // @downloadURL	https://diotools.de/downloads/DIO-TOOLS.user.js
@@ -22,7 +22,7 @@
 // @grant		GM_getResourceURL
 // ==/UserScript==
 
-var version = '3.18';
+var version = '3.19';
 
 //if(unsafeWindow.DM) console.dir(unsafeWindow.DM.status('l10n'));
 //console.dir(DM.status('templates'));
@@ -3579,8 +3579,8 @@ function DIO_GAME(version, gm, DATA, time_a) {
             $('<style id="dio_town_list" type="text/css">' +
                 '#town_groups_list .item { text-align: left; padding-left:35px; } ' +
                 '#town_groups_list .inner_column { border: 1px solid rgba(100, 100, 0, 0.3);margin: -2px 0px 0px 2px; } ' +
-                '#town_groups_list .island_quest_icon { background-size: 90%; position: absolute; right: 37px; top: 4px; } ' +
-                '#town_groups_list .island_quest_icon.hidden { display:none; } ' +
+                '#town_groups_list .island_quest_icon { position: absolute; right: 37px; top: 3px; } ' +
+                '#town_groups_list .island_quest_icon.hidden_icon { display:none; } ' +
                     // Quacks Zentrier-Button verschieben
                 '#town_groups_list .jump_town { right: 37px !important; } ' +
                     // Population percentage
@@ -3671,9 +3671,9 @@ function DIO_GAME(version, gm, DATA, time_a) {
 
             // Hover Effect for Quacks Tool:
             $("#town_groups_list .town_group_town").hover(function () {
-                $(this).find('.island_quest_icon').addClass("hidden");
+                $(this).find('.island_quest_icon').addClass("hidden_icon");
             }, function () {
-                $(this).find('.island_quest_icon').removeClass("hidden");
+                $(this).find('.island_quest_icon').removeClass("hidden_icon");
             });
 
             // Add change town list event handler
